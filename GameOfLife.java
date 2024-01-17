@@ -15,11 +15,11 @@ public class GameOfLife {
 		// show(board);
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		// test1("line.dat");
-		// System.out.println(cellValue(board,3,2));
+		test1("line.dat");
+		System.out.println(cellValue(board,3,2));
 		// print(evolve(board));
 		//// test3(fileName, 3);
-		play("pulsar.dat");
+		// play("pulsar.dat");
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -218,8 +218,8 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
 		int count=0;
-		for (int row=i-1;row<=i+1;row++){
-			for (int col=j-1; col<=j+1; col++){
+		for (int row=i;row<=i;row++){
+			for (int col=j; col<=j; col++){
 				if (row!=i | col!=j){
 					if(board[row][col]==1){
 						count++;
@@ -239,7 +239,7 @@ public class GameOfLife {
 		for (int i=0;i<board_length;i++){
 			for(int j=0;j<arr[i].length;j++){
 				// System.out.print(arr[i][j]);
-				System.out.printf("%3s  ", arr[i][j]);
+				System.out.printf("%3s ", arr[i][j]);
 		
 			}
 			System.out.println(" ");
