@@ -239,10 +239,10 @@ public class GameOfLife {
 		for (int i=0;i<board_length;i++){
 			for(int j=0;j<arr[i].length;j++){
 				// System.out.print(arr[i][j]);
-				System.out.printf("%3s ", arr[i][j]);
+				System.out.printf("%3s", arr[i][j]);
 		
 			}
-			System.out.println(" ");
+			System.out.println();
 		}
 	}
 		
