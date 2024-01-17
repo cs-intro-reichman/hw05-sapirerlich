@@ -5,24 +5,21 @@
  *  The file format is described in the homework document.
  */
 
-public class GameOfLife {
+ public class GameOfLife {
 
 	public static void main(String[] args) {
 		// String fileName = args[0];
 		// System.out.println("square.dat");
-		int[][] board =read("line.dat");
+		int[][] board =read("square.dat");
 		// System.out.println(board);
 		// show(board);
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
 		// test1("line.dat");
-		print(board);
-		System.out.println(cellValue(board,2,1));
-		System.out.println(count(board,2,1));
-
+		// System.out.println(cellValue(board,3,2));
 		print(evolve(board));
 		//// test3(fileName, 3);
-		// play("pulsar.dat");
+		play("pulsar.dat");
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -81,12 +78,22 @@ public class GameOfLife {
 		In in = new In(fileName); // Constructs an In object for reading the input file
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
-		int[][] board = new int[rows][cols];
-		for (int i = 0 ; i < rows ; i++){
+		int[][] board = new int[rows + 2][cols + 2];
+		// int[][] board = new int[rows][cols];
+		for (int i = 1 ; i <= rows ; i++){
 			String input =in.readLine();
 			int col=0;
-			if (input==""){
-				while (col<cols)
+			if (i>=rows){
+				while (col<=cols)
+				{
+					
+					board[i][col]=0;
+					col++;
+					
+				}
+			}
+			else if (input==""){
+				while (col<=cols)
 				{
 					
 					board[i][col]=0;
@@ -99,7 +106,7 @@ public class GameOfLife {
 					for (int cell=0 ; cell<input_length ; cell++)
 					{
 						if (input.charAt(cell)=='x'){
-							board[i][cell]=1;
+							board[i][cell+1]=1;
 						}
 						else{
 							board[i][cell+1]=0;
@@ -112,57 +119,6 @@ public class GameOfLife {
 		}
 		return board;
 	}
-
-
-
-
-
-
-	// public static int[][] read(String fileName) {
-	// 	In in = new In(fileName); // Constructs an In object for reading the input file
-	// 	int rows = Integer.parseInt(in.readLine());
-	// 	int cols = Integer.parseInt(in.readLine());
-	// 	int[][] board = new int[rows + 2][cols + 2];
-	// 	// int[][] board = new int[rows][cols];
-	// 	for (int i = 1 ; i <= rows ; i++){
-	// 		String input =in.readLine();
-	// 		int col=0;
-	// 		if (i>=rows){
-	// 			while (col<=cols)
-	// 			{
-					
-	// 				board[i][col]=0;
-	// 				col++;
-					
-	// 			}
-	// 		}
-	// 		else if (input==""){
-	// 			while (col<=cols)
-	// 			{
-					
-	// 				board[i][col]=0;
-	// 				col++;
-					
-	// 			}
-	// 		}
-	// 		else{
-	// 				Integer input_length = input.length();
-	// 				for (int cell=0 ; cell<input_length ; cell++)
-	// 				{
-	// 					if (input.charAt(cell)=='x'){
-	// 						board[i][cell+1]=1;
-	// 					}
-	// 					else{
-	// 						board[i][cell+1]=0;
-	// 					}
-	// 				}
-	
-	// 		}
-			
-
-	// 	}
-	// 	return board;
-	// }
 	
 	// Creates a new board from the given board, using the rules of the game.
 	// Uses the cellValue(board,i,j) function to compute the value of each 
@@ -242,10 +198,10 @@ public class GameOfLife {
 		for (int i=0;i<board_length;i++){
 			for(int j=0;j<arr[i].length;j++){
 				// System.out.print(arr[i][j]);
-				System.out.printf("%3s", arr[i][j]);
+				System.out.printf("%3s  ", arr[i][j]);
 		
 			}
-			System.out.println();
+			System.out.println(" ");
 		}
 	}
 		
