@@ -17,9 +17,9 @@ public class GameOfLife {
 		//// (Run one test at a time).
 		// test1("line.dat");
 		// System.out.println(cellValue(board,3,2));
-		// print(evolve(board));
+		print(evolve(board));
 		//// test3(fileName, 3);
-		play("pulsar.dat");
+		// play("pulsar.dat");
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -79,6 +79,7 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
+		// int[][] board = new int[rows][cols];
 		for (int i = 1 ; i <= rows ; i++){
 			String input =in.readLine();
 			int col=0;
@@ -197,10 +198,10 @@ public class GameOfLife {
 		for (int i=0;i<board_length;i++){
 			for(int j=0;j<arr[i].length;j++){
 				// System.out.print(arr[i][j]);
-				System.out.printf("%s  ", arr[i][j]);
+				System.out.printf("%3s  ", arr[i][j]);
 		
 			}
-			System.out.println();
+			System.out.println(" ");
 		}
 	}
 		
