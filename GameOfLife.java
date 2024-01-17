@@ -10,14 +10,17 @@ public class GameOfLife {
 	public static void main(String[] args) {
 		// String fileName = args[0];
 		// System.out.println("square.dat");
-		int[][] board =read("square.dat");
+		int[][] board =read("line.dat");
 		// System.out.println(board);
 		// show(board);
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
-		test1("line.dat");
-		System.out.println(cellValue(board,3,2));
-		// print(evolve(board));
+		// test1("line.dat");
+		print(board);
+		System.out.println(cellValue(board,2,1));
+		System.out.println(count(board,2,1));
+
+		print(evolve(board));
 		//// test3(fileName, 3);
 		// play("pulsar.dat");
 	}
@@ -218,8 +221,8 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
 		int count=0;
-		for (int row=i;row<=i;row++){
-			for (int col=j; col<=j; col++){
+		for (int row=i-1;row<=i+1;row++){
+			for (int col=j-1; col<=j+1; col++){
 				if (row!=i | col!=j){
 					if(board[row][col]==1){
 						count++;
